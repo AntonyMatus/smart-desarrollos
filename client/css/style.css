@@ -1295,7 +1295,7 @@ input.btn:focus { border-width: 2px; }
 .margin-10-rem-right { margin-right: 10rem; }
 .margin-10-half-rem-right { margin-right: 10.5rem; }
 
-#classes {padding: 50px 0;}
+#classes {padding: 100px 0;}
 /* margin left */
 .margin-one-left { margin-left:1%; }
 .margin-two-left { margin-left:2%; }
@@ -3400,7 +3400,7 @@ header .header-cart-icon .cart-count { position: absolute; top: -6px; right: -10
     22. Portfolio
 ====================================== */
 
-.portfolio-box .portfolio-image { position: relative; overflow: hidden; }
+.portfolio-box .portfolio-image { position: relative; overflow: hidden; display: grid; justify-content: center; align-items: center; justify-items: center;}
 .portfolio-box .portfolio-hover { position: absolute; width:100%; height:100%; left: 0; top: 0; opacity: 0; }
 .portfolio-box:hover .portfolio-hover { opacity: 1; }
 .portfolio-box .portfolio-hover .portfolio-icon { line-height: 50px; display: inline-block; vertical-align: middle; text-align: center; margin: 0 5px; }
@@ -4941,3 +4941,5 @@ input[type="checkbox"].error { box-shadow: 0px 0px 0px 1px rgb(255 0 0), 1px 1px
 
 .text-left{ text-align: left;}
 .sub-footer {width: 1348px; height: 50px; display: flex; justify-content: center; align-items: center;}
+.title-proyec {font-weight: 700; font-size: 32px; line-height: 36px;}
+.position-absolut{position: absolute; text-align: center; }
