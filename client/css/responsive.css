@@ -2988,7 +2988,7 @@
     .navbar-dark.bg-transparent .push-button > span, .sticky .navbar-dark.bg-transparent .push-button > span { background: #232323; }
 
     /* header transparent */
-    .navbar.bg-transparent { background-color: #fff!important; }
+    .navbar.bg-transparent { background-color: transparent!important; }
     .navbar.navbar-dark .header-social-icon, .sticky .navbar.header-dark .header-social-icon { border-color: rgba(0,0,0,.45); }
     .navbar.navbar-dark.bg-transparent .navbar-nav .nav-link, .navbar.navbar-dark.bg-transparent .header-search-icon > a, .navbar.navbar-dark.bg-transparent .header-social-icon > a, .navbar.navbar-dark.bg-transparent .header-cart-icon > a, .navbar.navbar-dark.bg-transparent .header-language > a, .navbar.navbar-dark .nav-bar-contact { color: #232323 !important;}
     header.sticky .navbar.navbar-dark.bg-transparent.header-dark .header-social-icon > a { color: #fff !important;}
@@ -3131,7 +3131,7 @@
     section { padding: 75px 0; }
     section.big-section { padding:95px 0; }
     section.extra-big-section { padding: 110px 0; }
-    section.half-section { padding:40px 0; }
+    section.half-section { padding:40px 0;  height: 50px;}
     .md-no-overlap-section { height: auto !important}
     .md-no-overlap-section ~ section .overlap-section { margin-top: 0 !important}
     .md-last-order { order: 10; }
@@ -6007,7 +6007,7 @@
     .sm-h-350px { height: 350px !important; }
     .sm-h-400px { height: 400px !important; }
     .sm-h-450px { height: 450px !important; }
-    .sm-h-500px { height: 500px !important; }
+    .sm-h-500px { height: auto !important; }
     .sm-h-520px { height: 520px !important; }
     .sm-h-550px { height: 550px !important; }
     .sm-h-580px { height: 580px !important; }
@@ -7988,6 +7988,13 @@
 
     /* countdown style 02 */
     .countdown.countdown-style-02 .countdown-box { margin-bottom: 15px; padding: 0 25px; }
+    .sub-footer{ width: auto; text-align: center; height: auto; margin: 0;}
+    footer .title{text-align: center;}
+    .margin-responsive{margin-bottom: 5rem;}
+    .margin-top-movile {margin-top: -72px;}
+    .fz-movile-h2 {font-size: 25px;}
+    .swiper-pagination{text-align: left;}
+    .d-flex2 {align-items: flex-start;}
 }
 @media (max-height: 460px) {
     /* header search */
