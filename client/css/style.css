@@ -2313,7 +2313,7 @@ input.btn:focus { border-width: 2px; }
 .one-half-screen { height:600px; }
 .one-third-screen { height:700px; }
 .one-fourth-screen { height:800px; }
-.one-fifth-screen { height:900px; }
+.one-fifth-screen { height:712px; }
 
 /* content box image */
 .content-box-image { width: 100%; height: -webkit-calc(100% / 3); height: -moz-calc(100% / 3); height: calc(100% / 3); }
