@@ -1,0 +1,7 @@
+- información del slider de texto de la pagina home
+- Links de redes sociales (facebook, instagram) => 
+(https://www.instagram.com/smartdesarrollos/)
+(https://www.facebook.com/SmartDesarrollos/)
+- Lista de categorias para la pagina blogs 
+- Correo electronico donde les llegaran los correos de los clientes en el formulario de contacto 
+=>(smartdesarrollosmarketing@gmail.com)

@@ -1,6 +1,7 @@
 <?php
 if( ! empty( $_POST['email'] ) ) {
 
+	$logo_url = 'https://' . $_SERVER['SERVER_NAME'] . '/client/images/Logo.svg';
 	// Enable / Disable SMTP
 	$enable_smtp = 'no'; // yes OR no
 
@@ -19,7 +20,7 @@ if( ! empty( $_POST['email'] ) ) {
 	$from 	= $_POST['email'];
 	$name 	= isset( $_POST['name'] ) ? $_POST['name'] : '';
 	$phone 	= isset( $_POST['phone'] ) ? $_POST['phone'] : '';
-	$comment= isset( $_POST['comment'] ) ? $_POST['comment'] : '';
+	$comment= isset( $_POST['solicitud'] ) ? $_POST['solicitud'] : '';
 	
 	if( ! empty( $grecaptchav3_secret_key ) && ! empty( $_POST['g-recaptcha-response'] ) ) {
 
@@ -56,7 +57,7 @@ if( ! empty( $_POST['email'] ) ) {
 		<body>
 		<table width="50%" border="0" align="center" cellpadding="0" cellspacing="0">
 		<tr>
-		<td colspan="2" align="center" valign="top"><img style="margin-top: 15px;" src="http://www.yourdomain.com/images/logo-email.png" ></td>
+		<td colspan="2" align="center" valign="top"><img style="margin-top: 15px;" src="' . $logo .'" ></td>
 		</tr>
 		<tr>
 		<td width="50%" align="right">&nbsp;</td>
@@ -91,19 +92,14 @@ if( ! empty( $_POST['email'] ) ) {
 		// More headers
 		$headers .= 'From: ' . $name . ' <' . $from . '>' . "\r\n";
 		if( mail( $receiver_email, $subject, $message, $headers ) ) {
-
-			// Redirect to success page
-			$redirect_page_url = ! empty( $_POST['redirect'] ) ? $_POST['redirect'] : '';
-			if( ! empty( $redirect_page_url ) ) {
-				header( "Location: " . $redirect_page_url );
-				exit();
-			}
-
+			
+			header( "Location: http://smart-desarrollos.test ");	
+			echo '{ "alert": "alert-success", "message": "Tu mensaje ha sido enviado exitosamente!" }';
 		   	//Success Message
-		  	echo '{ "alert": "alert-success", "message": "Your message has been sent successfully!" }';
+		  	
 		} else {
 			//Fail Message
-		  	echo '{ "alert": "alert-danger", "message": "Your message could not been sent!" }';
+		  	echo '{ "alert": "alert-danger", "message": "No se pudo enviar su mensaje por favor verifique sus datos!" }';
 		}
 		
 	} else { // SMTP

@@ -2836,7 +2836,7 @@ header.sticky .navbar.header-dark .navbar-toggler-line { background: #fff; }
 .navbar.navbar-dark .navbar-nav > .nav-item.dropdown.megamenu:hover > a, 
 .navbar.navbar-dark .navbar-nav > .nav-item.dropdown.simple-dropdown:hover > a,
 .sticky .navbar.navbar-light.header-dark .navbar-nav > .nav-item.dropdown.megamenu:hover > a, 
-.sticky .navbar.navbar-light.header-dark .navbar-nav > .nav-item.dropdown.simple-dropdown:hover > a{ color: rgba(255,255,255,0.6) !important; }
+.sticky .navbar.navbar-light.header-dark .navbar-nav > .nav-item.dropdown.simple-dropdown:hover > a{ color: rgba(255,255,255,0.6); }
 .navbar.navbar-light .navbar-nav > .dropdown.active > a, 
 .sticky .navbar.header-light .navbar-nav > .dropdown.active > a, 
 .navbar.navbar-light .navbar-nav > .nav-item.dropdown.megamenu:hover > a, 
