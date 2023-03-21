@@ -6,10 +6,10 @@
 <div class="topbar-left">
     <a href="index.php" class="logo">
         <span>
-            <img src="assets/images/Recurso 4.svg" alt="" width="180" height="100">
+            <img src="../../client/images/logos/Logo.svg" alt="" width="150" height="80">
         </span>
         <i>
-            <img src="../../template/images/logos/Recurso 2.svg" alt="" height="22">
+            <img src="../../client/images/logos/favicon.svg" alt="" height="50">
         </i>
     </a>
 </div>
@@ -26,7 +26,7 @@
             <div class="dropdown notification-list nav-pro-img">
                 
                 <a class="dropdown-toggle nav-link arrow-none waves-effect nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                    <img src="assets/images/users/user-4.jpg" alt="user" class="rounded-circle">
+                    <img src="../../client/images/logos/favicon.svg" alt="user" class="rounded-circle">
                 </a>
                 <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                     <!-- item-->

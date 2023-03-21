@@ -11,7 +11,7 @@ header('location:login.php');
 <?php
 include('config.php');
 
-$query = "SELECT P.id, P.name, P.status,  C.name AS category FROM tours P JOIN category C ON P.category_id = C.id";
+$query = "SELECT P.id, P.name, P.date, C.name AS category FROM blog P JOIN category C ON P.category_id = C.id";
 $blog = $pdo->prepare($query);
 $blog->execute();
 
@@ -26,7 +26,7 @@ include('includes/header.php');
 <div class="row">
     <div class="col-sm-12">
         <div class="page-title-box">
-            <h4 class="page-title">Lista de Tours</h4>
+            <h4 class="page-title">Lista de Blog</h4>
             <ol class="breadcrumb">
                 
                 
@@ -43,16 +43,16 @@ include('includes/header.php');
             <div class="card m-b-20">
                 <div class="card-body">
 
-                    <a href="crear_tour.php" class="btn btn-brown waves-effect waves-light float-right m-b-10 ">Crear Tour</a>
+                    <a href="crear_blog.php" class="btn btn-client waves-effect waves-light float-right m-b-10 ">Crear Blog</a>
 
                     <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                         <tr class="text-center">
                             <th>#ID</th>
                             <th>Nombre</th>
-                            <th>Category</th>
-                            <th>Status</th>
-                            <th>options</th>
+                            <th>Categoria</th>
+                            <th>Fecha</th>
+                            <th>Acciones</th>
                             
                         </tr>
                         </thead>
@@ -64,18 +64,12 @@ include('includes/header.php');
                             <td class="text-center"><?php echo $dato['id'] ?></td>
                             <td><?php echo $dato['name'] ?></td>
                             <td><?php echo $dato['category'] ?></td>
-                            <td >
-                                <?php if( $dato['status'] === "0"): ?>
-                                    <span class="badge bg-success">Disponible</span>
-                                <?php else: ?>
-                                    <span class="badge bg-danger">No disponible</span>
-                                <?php endif ?>
-                            </td>
+                            <td ><?php echo $dato['date']?></td>
                             
                             <td class="text-center">
-                            <a href="<?php echo "editar_tour.php?id=" .$dato['id'] ?>"><i  class="fas fa-pencil-alt" style="color: violet;"></i></a>
+                            <a href="<?php echo "editar_blog.php?id=" .$dato['id'] ?>"><i  class="fas fa-pencil-alt" style="color: violet;"></i></a>
                                      &nbsp; &nbsp;&nbsp;&nbsp;
-                            <a onclick="delete_tour(<?php echo $dato['id'] ?>)"><i class="fas fa-trash-alt" style="color: #ec536c;"></i></a>  
+                            <a onclick="delete_blog(<?php echo $dato['id'] ?>)"><i class="fas fa-trash-alt" style="color: #ec536c;"></i></a>  
                                 
 
                             </td>
@@ -97,9 +91,9 @@ include('includes/scripts.php');
 ?>
 
 <script>
-    function delete_tour(id){
+    function delete_blog(id){
             Swal.fire({
-                title: "Estas seguro de eliminar este tour?",
+                title: "Estas seguro de eliminar este video?",
                 text: "!No podrás revertir esto!!",
                 type: "warning",
                 showCancelButton: true,
@@ -111,10 +105,10 @@ include('includes/scripts.php');
                     
                     if(result.value)
                     {
-                       location.href = 'delete_tour.php?id='+id;
+                       location.href = 'delete_blog.php?id='+id;
                         Swal.fire(
                             'Eliminado!',
-                            'El Tour fue eliminado.',
+                            'El usuario fue eliminado.',
                             'success'
                         )
                     }

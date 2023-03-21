@@ -5,7 +5,7 @@ define('HOST', '127.0.0.1');
 define('DATABASE', 'solin_tour');
  
 
-$link = 'mysql:host=127.0.0.1; dbname=solin_tour; charset=utf8';
+$link = 'mysql:host=127.0.0.1; dbname=smart_desarrollos; charset=utf8';
 $host = '127.0.0.1';
 $username = 'root';
 $password = '';

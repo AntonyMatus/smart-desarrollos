@@ -47,7 +47,7 @@ include('includes/header.php');
             <div class="card m-b-20">
                 <div class="card-body">
 
-                    <a href="crear_usuario.php" class="btn btn-brown waves-effect waves-light float-right m-b-10 ">Crear Usuario</a>
+                    <a href="crear_usuario.php" class="btn btn-client waves-effect waves-light float-right m-b-10 ">Crear Usuario</a>
 
                     <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>

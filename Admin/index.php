@@ -16,10 +16,10 @@ include('includes/header.php');
 <div class="row">
     <div class="col-sm-12">
         <div class="page-title-box">
-            <h4 class="page-title">Solin Tours</h4>
+            <h4 class="page-title">Smart Desarrollos</h4>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item active">
-                    Welcome to Solin Tours Dashboard
+                    Welcome to Smart Desarrollos Dashboard
                     <?php echo $_SESSION['user_id'];?>
                 </li>
             </ol>

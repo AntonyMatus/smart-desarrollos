@@ -25,10 +25,10 @@
                             <?php endif ?>
                             
                             <li>
-                                <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-suitcase"></i><span> Tours <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="fab fa-blogger-b"></i><span> Blogs <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                                 <ul class="submenu">
-                                    <li><a href="lista_tour.php">Lista Tours</a></li>
-                                    <li><a href="crear_tour.php">Crear Tour</a></li>
+                                    <li><a href="lista_blog.php">Lista Blog</a></li>
+                                    <li><a href="crear_blog.php">Crear Blog</a></li>
                                     
                                 </ul>
                             </li>

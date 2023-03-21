@@ -606,7 +606,7 @@ dt {
 
 .submenu li a {
   padding: 8px 20px 8px 10px;
-  color: white;
+  color: black;
   display: block;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
@@ -617,8 +617,8 @@ dt {
 }
 
 .submenu li a:hover {
-  background-color: #D0A767;
-  color: rgba(255, 255, 255, 0.8);
+  background-color: #efefef;
+  color: black;
 }
 
 .submenu > li > a {
@@ -626,8 +626,8 @@ dt {
 }
 
 .submenu li.active > a {
-  color: #ffffff;
-  background-color: #D0A767;
+  color: black;
+  background-color: #D9D9D9;
 }
 
 .topbar {
@@ -639,7 +639,7 @@ dt {
 }
 
 .topbar .topbar-left {
-  background: #ED510D;
+  background: #EFEFEF;
   float: left;
   text-align: center;
   height: 70px;
@@ -690,7 +690,7 @@ dt {
 .side-menu {
   width: 240px;
   z-index: 10;
-  background: #ED510D;
+  background: #EFEFEF;
   bottom: 0;
   margin-top: 0;
   padding-bottom: 30px;
@@ -728,7 +728,7 @@ dt {
 }
 
 #sidebar-menu > ul > li > a {
-  color: white;
+  color: black;
   display: block;
   padding: 13px 20px;
   font-size: 13.3px;
@@ -738,7 +738,7 @@ dt {
 }
 
 #sidebar-menu > ul > li > a:hover, #sidebar-menu > ul > li > a:focus, #sidebar-menu > ul > li > a:active {
-  color: #ffffff;
+  color: black;
   text-decoration: none;
 }
 
@@ -769,8 +769,8 @@ dt {
 }
 
 #sidebar-menu > ul > li > a.active {
-  color: #ffffff !important;
-  background-color: #ED510D;
+  color: black !important;
+  background-color: #9d9c9c;
 }
 
 .menu-title {
@@ -779,7 +779,7 @@ dt {
   font-size: 10px;
   font-weight: 500;
   text-transform: uppercase;
-  color: white;
+  color: black;
 }
 
 .enlarged .slimScrollDiv {
@@ -1150,6 +1150,7 @@ button:focus {
 .btn-lime, .btn-orange, .btn-brown, .btn-blue-grey {
   color: #ffffff;
 }
+.btn-client { background:#EFEFEF; border-color: #EFEFEF; color: #000; }
 
 .btn-primary {
   background-color: #7a6fbe;

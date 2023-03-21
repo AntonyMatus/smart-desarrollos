@@ -39,12 +39,12 @@ include_once ('includes/header_login.php');
         <div class="card-body">
             <?php include('message.php') ?>
             <h3 class="text-center m-0">
-                <a  class="logo logo-admin"><img src="../template/images/logos/Recurso 2.svg" height="80" alt="logo"></a>
+                <a  class="logo logo-admin"><img src="../client/images/logos/Logo.svg" height="80" alt="logo"></a>
             </h3>
 
             <div class="p-3">
                 <h4 class="text-muted font-18 m-b-5 text-center">Bienvenido de nuevo !</h4>
-                <p class="text-muted text-center">Inicie sesión para continuar con Solin Tour.</p>
+                <p class="text-muted text-center">Inicie sesión para continuar con Smart Desarrollos.</p>
 
                 <form class="form-horizontal m-t-30" action="" method="POST">
 
@@ -66,7 +66,7 @@ include_once ('includes/header_login.php');
                             </div>
                         </div>
                         <div class="col-6 text-right">
-                            <button class="btn btn-primary w-md waves-effect waves-light" type="submit" name="login">iniciar sesión</button>
+                            <button class="btn btn-client w-md waves-effect waves-light" type="submit" name="login">iniciar sesión</button>
                         </div>
                     </div>
 
