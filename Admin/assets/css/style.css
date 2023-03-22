@@ -768,9 +768,35 @@ dt {
   width: 20px;
 }
 
+.grid{display: grid;}
+
+.xl\:grid-cols-4{ grid-template-columns: repeat(4,minmax(0,1fr));}
+
+.justify-center {
+  justify-content: center;
+}
+
+.img-size {height: 150px; width: 234.25px;}
+
+.w-5 {
+  width: 1.25rem;
+}
+.h-5 {
+  height: 1.25rem;
+}
+
 #sidebar-menu > ul > li > a.active {
   color: black !important;
   background-color: #9d9c9c;
+}
+
+.gap-6 {
+  grid-gap: 1.5rem;
+  gap: 1.5rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
 }
 
 .menu-title {
