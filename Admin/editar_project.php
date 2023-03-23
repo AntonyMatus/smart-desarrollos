@@ -220,7 +220,7 @@ include('includes/scripts.php');
                     showCancelButton: true,
                     confirmButtonColor: "#58db83",
                     cancelButtonColor: "#ec536c",
-                    confirmButtonText: "Si, eliminar!",
+                    confirmButtonText: "Si, Actualizar!",
                     cancelButtonText: 'Cancelar!',
                 }).then(function (result) {
                         if(result.value)

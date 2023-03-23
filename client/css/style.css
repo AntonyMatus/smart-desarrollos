@@ -2290,6 +2290,7 @@ input.btn:focus { border-width: 2px; }
 .h-830px { height: 830px; }
 .h-850px { height: 850px; }
 
+p{text-align: left;}
 .h-50 { height: 50%; }
 .h-100 { height: 100% !important; }
 .h-auto { height:auto !important; }
@@ -3353,7 +3354,7 @@ header .header-cart-icon .cart-count { position: absolute; top: -6px; right: -10
     21. Grid
 ====================================== */
 
-.blog-post-image img, .portfolio-image img { width: 100%; }
+.blog-post-image img, .portfolio-image img { width: 540px; height: 340px; }
 .grid { list-style: none; }
 .grid-sizer { padding: 0 !important; margin: 0 !important; }
 

@@ -1,3 +1,38 @@
+<?php
+
+session_start();
+
+require 'Admin/config.php';
+
+$page = isset($_GET["page"]) ? intval($_GET["page"]) : 1;
+$category = (isset($_GET["category"]) && !empty($_GET["category"])) ? intval($_GET["category"]) : null;
+$search = (isset($_GET["search"]) && !empty($_GET["search"])) ? strval($_GET["search"]) : null;
+$itemsPerPage = 10;
+$limit = $itemsPerPage;
+$offset = ($page - 1) * $itemsPerPage;
+$pages = 0;
+$blogs = [];
+
+if (is_null($category) && is_null($search)) {
+
+    // count
+    $sqlForCount = $pdo->query("SELECT count(*) as count FROM blog WHERE status = 0");
+    $count = $sqlForCount->fetchObject()->count;
+    $pages = ceil($count / $itemsPerPage);
+
+  
+     // posts
+      $sqlForPosts = "SELECT P.id, P.name, P.description, P.img, C.name AS category FROM blog P JOIN category C ON P.category_id = C.id WHERE status = 0 ORDER BY `id` DESC LIMIT :lop OFFSET :osf";
+      $query = $pdo->prepare($sqlForPosts); 
+      $query->bindValue(':lop', (int) trim($limit), PDO::PARAM_INT);
+      $query->bindValue(':osf', (int) trim($offset), PDO::PARAM_INT);
+      $query->execute(); 
+      $blogs = $query->fetchAll(PDO::FETCH_OBJ);
+}
+
+
+?>
+
 <!doctype html>
 <html class="no-js" lang="en">
     <head>
@@ -77,7 +112,7 @@
         <!-- end header -->
         <!-- start page title -->
         <section class="half-section bg-light-gray parallax" data-parallax-background-ratio="0.5">
-            <div class="container">
+            <div class="container h-200px">
                 <div class="row align-items-stretch justify-content-center extra-small-screen">
                     <div class="col-12 col-xl-6 col-lg-7 col-md-8 page-title-extra-small text-center d-flex justify-content-center flex-column">
                         <h2 class="text-extra-dark-gray alt-font font-weight-500 letter-spacing-minus-1px line-height-50 sm-line-height-45 xs-line-height-30 no-margin-bottom">Blogs</h2>
@@ -94,24 +129,26 @@
                         <ul class="blog-grid blog-wrapper grid grid-loading grid-3col xl-grid-3col lg-grid-3col md-grid-2col sm-grid-2col xs-grid-1col gutter-extra-large">
                             <li class="grid-sizer"></li>
                             <!-- start blog item -->
+                            <?php foreach($blogs as $blog): ?>
                             <li class="grid-item wow animate__fadeIn">
                                 <div class="blog-post border-radius-5px bg-white box-shadow-medium">
                                     <div class="blog-post-image bg-medium-slate-blue">
-                                        <a href="single_blog.html" title=""><img src="https://via.placeholder.com/800x560" alt=""></a>
-                                        <a href="single_blog.html" class="blog-category alt-font">Category</a>
+                                        <a href="single_blog.php?id=<?php echo $blog->id ?>" title=""><img src="Admin/assets/images/blogs/<?php echo $blog->img ?>" alt=""></a>
+                                        <a href="single_blog.html" class="blog-category alt-font"><?php echo $blog->category ?></a>
                                     </div>
                                     <div class="post-details padding-3-rem-lr padding-2-half-rem-tb">
-                                        <a href="single_blog.html" class="alt-font font-weight-500 text-extra-medium text-dark margin-15px-bottom d-block">TITULO DEL BLOG</a>
-                                        <p class="text-dark">Lorem ipsum is simply dummy text printing typesetting industry lorem ipsum been dummy...</p>
+                                        <a href="single_blog.html" class="alt-font font-weight-500 text-extra-medium text-dark margin-15px-bottom d-block"><?php echo $blog->name ?></a>
+                                        <p class="text-dark"><?php echo $blog->description ?></p>
                                         <div class="d-flex align-items-center">
                                             <span class="alt-font text-small me-auto"><a href="single_blog.html" class="text-dark">Leer más</a></span>
                                         </div>
                                     </div>
                                 </div>
                             </li>
+                            <?php endforeach ?>
                             <!-- end blog item -->
                             <!-- start blog item -->
-                            <li class="grid-item wow animate__fadeIn">
+                            <!-- <li class="grid-item wow animate__fadeIn">
                                 <div class="blog-post border-radius-5px bg-white box-shadow-medium">
                                     <div class="blog-post-image bg-medium-slate-blue">
                                         <a href="single_blog.html" title=""><img src="https://via.placeholder.com/800x560" alt=""></a>
@@ -125,10 +162,10 @@
                                         </div>
                                     </div>
                                 </div>
-                            </li>
+                            </li> -->
                             <!-- end blog item -->
                             <!-- start blog item -->
-                            <li class="grid-item wow animate__fadeIn">
+                            <!-- <li class="grid-item wow animate__fadeIn">
                                 <div class="blog-post border-radius-5px bg-white box-shadow-medium">
                                     <div class="blog-post-image bg-medium-slate-blue">
                                         <a href="single_blog.html" title=""><img src="https://via.placeholder.com/800x560" alt=""></a>
@@ -142,10 +179,10 @@
                                         </div>
                                     </div>
                                 </div>
-                            </li>
+                            </li> -->
                             <!-- end blog item -->
                             <!-- start blog item -->
-                            <li class="grid-item wow animate__fadeIn">
+                            <!-- <li class="grid-item wow animate__fadeIn">
                                 <div class="blog-post border-radius-5px bg-white box-shadow-medium">
                                     <div class="blog-post-image bg-medium-slate-blue">
                                         <a href="single_blog.html" title=""><img src="https://via.placeholder.com/800x560" alt=""></a>
@@ -159,10 +196,10 @@
                                         </div>
                                     </div>
                                 </div>
-                            </li>
+                            </li> -->
                             <!-- end blog item -->
                             <!-- start blog item -->
-                            <li class="grid-item wow animate__fadeIn">
+                            <!-- <li class="grid-item wow animate__fadeIn">
                                 <div class="blog-post border-radius-5px bg-white box-shadow-medium">
                                     <div class="blog-post-image bg-medium-slate-blue">
                                         <a href="single_blog.html" title=""><img src="https://via.placeholder.com/800x560" alt=""></a>
@@ -176,10 +213,10 @@
                                         </div>
                                     </div>
                                 </div>
-                            </li>
+                            </li> -->
                             <!-- end blog item -->
                             <!-- start blog item -->
-                            <li class="grid-item wow animate__fadeIn">
+                            <!-- <li class="grid-item wow animate__fadeIn">
                                 <div class="blog-post border-radius-5px bg-white box-shadow-medium">
                                     <div class="blog-post-image bg-medium-slate-blue">
                                         <a href="single_blog.html" title=""><img src="https://via.placeholder.com/800x560" alt=""></a>
@@ -193,22 +230,38 @@
                                         </div>
                                     </div>
                                 </div>
-                            </li>
+                            </li> -->
                             <!-- end blog item -->
                             
                         </ul>
                         <!-- start pagination -->
-                        <div class="col-12 d-flex justify-content-center margin-7-half-rem-top md-margin-5-rem-top wow animate__fadeIn">
+                        <?php if($pages > 1) { ?>
+                        <!-- start pagination -->
+                        <div class="col-12 d-flex justify-content-center margin-7-half-rem-top lg-margin-5-rem-top xs-margin-4-rem-top wow animate__fadeIn">
+                            <?php $queryParams = '&category=' . $category . '&search=' . $search; ?>
                             <ul class="pagination pagination-style-01 text-small font-weight-500 align-items-center">
-                                <li class="page-item"><a class="page-link" href="#"><i class="feather icon-feather-arrow-left icon-extra-small d-xs-none"></i></a></li>
-                                <li class="page-item"><a class="page-link" href="#">01</a></li>
-                                <li class="page-item active"><a class="page-link" href="#">02</a></li>
-                                <li class="page-item"><a class="page-link" href="#">03</a></li>
-                                <li class="page-item"><a class="page-link" href="#">04</a></li>
-                                <li class="page-item"><a class="page-link" href="#"><i class="feather icon-feather-arrow-right icon-extra-small  d-xs-none"></i></a></li>
-                            </ul>
+                                <li class="page-item">
+                                    <a class="page-link"
+                                    <?php if ($page > 1) { ?>
+                                     href="blogs.php?page=<?php echo $page - 1 ?> <?php echo $queryParams ?>" <?php }?>>
+                                     <i class="feather icon-feather-arrow-left icon-extra-small d-xs-none"></i>
+                                    </a>
+                                </li>
+                                <?php for($i = 1; $i <= $pages; $i++) { ?>
+                                <li class="page-item <?php if($i == $page) {echo 'active';} ?>"> 
+                                    <a class="page-link" href="blogs.php?page=<?php echo $i ?><?php echo $queryParams ?>"><?php echo $i ?></a>
+                                </li>
+                                <?php } ?>
+                                <li class="page-item">
+                                    <a class="page-link"
+                                    <?php if($page < $pages) {?> href="blogs.php?page=<?php echo $page + 1 ?><?php echo $queryParams ?>" <?php } ?>>
+                                     <i class="feather icon-feather-arrow-right icon-extra-small  d-xs-none"></i>
+                                    </a>
+                                </li>
+                             </ul>
                         </div>
                         <!-- end pagination -->
+                        <?php } ?>
                     </div>
                 </div>
             </div>

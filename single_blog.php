@@ -1,7 +1,35 @@
+<?php
+require 'Admin/config.php';
+
+$id = intval($_GET['id']);
+
+$sql = "SELECT * FROM blog WHERE id = :id AND status = 0";
+$query = $pdo->prepare($sql);
+$query->bindParam(':id', $id, PDO::PARAM_STR);
+$query->execute();
+
+$blog = $query->fetch(PDO::FETCH_OBJ);
+
+
+$d=mt_rand(1,2);
+
+$sql_aleatorio = "SELECT * FROM blog WHERE id = :id AND status = 0";
+$query = $pdo->prepare($sql);
+$query->bindParam(':id', $d, PDO::PARAM_STR);
+$query->execute();
+
+$blog_aleatorio = $query->fetch(PDO::FETCH_OBJ);
+
+
+
+if(! $blog){
+    header('location:blog.php');
+}
+?>
 <!doctype html>
 <html class="no-js" lang="en">
     <head>
-        <title>Proyectos | Smart-Desarrollos</title>
+        <title>Blog <?php echo $blog->name ?> | Smart-Desarrollos</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="author" content="ThemeZaa">
@@ -45,7 +73,7 @@
                                    
                                 </li>
                                 <li class="nav-item dropdown simple-dropdown">
-                                    <a href="#" class="nav-link active">Proyectos</a>
+                                    <a href="proyectos.html" class="nav-link">Proyectos</a>
                                     <i class="fa fa-angle-down dropdown-toggle" data-bs-toggle="dropdown"></i>
                                     
                                 </li>
@@ -55,12 +83,12 @@
                                     
                                 </li>
                                 <li class="nav-item dropdown megamenu">
-                                    <a href="blogs.html" class="nav-link">Blog</a>
+                                    <a href="blogs.php" class="nav-link active">Blog</a>
                                     <i class="fa fa-angle-down dropdown-toggle" data-bs-toggle="dropdown"></i>
                                     
                                 </li>
                                 <li class="nav-item dropdown simple-dropdown">
-                                    <a href="#" class="nav-link">Contacto</a>
+                                    <a href="#contacto" class="nav-link">Contacto</a>
                                     <i class="fa fa-angle-down dropdown-toggle" data-bs-toggle="dropdown"></i>
                                     
                                 </li>
@@ -76,63 +104,59 @@
         </header>
         <!-- end header -->
         
-        <section id="classes" class="bg-client overlap-height padding-5-rem-top">
+        <!-- start page title -->
+        <section class="half-section parallax p-0 h-150px" data-parallax-background-ratio="0.5" >
             <div class="container">
-                <div class="row align-items-end margin-2-rem-bottom">
-                    <div class="col-12 col-xl-8 col-lg-8 text-center text-lg-start wow animate__fadeIn" style="visibility: visible; animation-name: fadeIn;">
-                        <span class="alt-font font-weight-500 text-dark  d-block margin-20px-bottom md-margin-10px-bottom fz-20px title-proyec">Proyectos</span>
-                    </div>
-                    
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-12">
-                        <ul class="portfolio-overlay portfolio-wrapper grid grid-2col xl-grid-2col lg-grid-2col md-grid-2col sm-grid-2col xs-grid-1col gutter-extra-large text-center" style="position: relative; height: 317.172px;">
-                            <li class="grid-sizer"></li>
-                            <!-- start lightbox gallery item -->
-                            <li class="grid-item wow animate__fadeIn" style="visibility: visible; position: absolute; left: 0%; top: 0px; animation-name: fadeIn;">
-                                <a href="projects/amaite.html">
-                                    <div class="portfolio-box">
-                                        <div class="portfolio-image ">
-                                            <img src="client/images/proyectos/project1.jpg" alt="" data-no-retina="">
-                                            <h3 class="alt-font text-white position-absolut">AMAITE</h3>
-                                            
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <!-- end lightbox gallery item -->
-                            <!-- start lightbox gallery item -->
-                            <li class="grid-item wow animate__fadeIn" data-wow-delay="0.2s" style="visibility: visible; position: absolute; left: 24.9992%; top: 0px; animation-delay: 0.2s; animation-name: fadeIn;">
-                                <a href="projects/rosa_palmar.html">
-                                    <div class="portfolio-box">
-                                        <div class="portfolio-image ">
-                                            <img src="client/images/proyectos/project3.jpg" alt="" data-no-retina="">
-                                            <h3 class="alt-font text-white position-absolut">ROSA <br> PALMAR</h3>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <!-- end lightbox gallery item -->
-                            <!-- start lightbox gallery item -->
-                            <li class="grid-item wow animate__fadeIn" data-wow-delay="0.4s" style="visibility: visible; position: absolute; left: 49.9985%; top: 0px; animation-delay: 0.4s; animation-name: fadeIn;">
-                                <a href="projects/villas_maruva.html">
-                                    <div class="portfolio-box">
-                                        <div class="portfolio-image ">
-                                            <img src="client/images/proyectos/project2.jpg" alt="" data-no-retina="">
-                                            <h3 class="alt-font text-white position-absolut">VILLAS <br> MARUVA</h3>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            
-                            
-                            
-                        </ul>
+                <div class="row align-items-stretch justify-content-center extra-small-screen">
+                    <div class="col-12 col-xl-6 col-lg-7 col-md-8 page-title-extra-small text-center d-flex justify-content-center flex-column">
                     </div>
                 </div>
             </div>
         </section>
-
+        <!-- end page title -->
+        <!-- start section --> 
+        <section class="blog-right-side-bar pt-0">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-sm-12  col-lg-8 right-sidebar md-margin-60px-bottom sm-margin-40px-bottom">
+                        <!-- start blog item --> 
+                        <div class="col-12 blog-post-content border-radius-6px overflow-hidden text-center p-0 margin-4-half-rem-bottom wow animate__fadeIn">
+                            <div class="blog-image"><a href="blog-post-layout-01.html"><img src="Admin/assets/images/blogs/<?php echo $blog->img ?>" alt=""/></a></div>
+                            <div class="blog-text d-inline-block w-100">
+                                <div class="content margin-40px-top  lg-padding-4-half-rem-all xs-padding-20px-lr xs-padding-40px-tb position-relative mx-auto w-100 lg-w-100">
+                                    <h6 class="alt-font font-weight-500 text-dark text-left"><?php echo $blog->name ?></h6>
+                                    <?php echo $blog->body ?>
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <!-- end blog item -->
+                    </div>
+                    <!-- start sidebar -->
+                    <aside class="col-12 col-xl-3 offset-xl-1 col-lg-4 col-md-7 col-sm-6 blog-sidebar lg-padding-4-rem-left md-padding-15px-left">
+                        <div class="d-inline-block w-100 ">
+                            <span class="alt-font font-weight-500 text-large text-extra-dark-gray d-block margin-25px-bottom">OTRAS NOTAS</span>
+                            
+                        </div>
+                        <?php if($blog_aleatorio): ?>
+                        <div class=" border-radius-4px text-center margin-5-rem-bottom xs-margin-35px-bottom text-left">
+                            <a href="about-me.html"><img src="Admin/assets/images/blogs/<?php echo $blog_aleatorio->img ?>" alt="" class="  mx-auto"/></a>
+                            <a href="blog-grid.html" class="text-extra-dark-gray alt-font font-weight-500 margin-20px-top d-inline-block text-medium text-dark"><?php echo $blog_aleatorio->name ?></a>
+                            <p class="alt-font text-dark"><?php echo $blog_aleatorio->description ?></p>
+                            <div class="d-flex align-items-center">
+                                <span class="alt-font me-auto"><a href="single_blog.php?id=<?php echo $blog_aleatorio->id ?>" class="text-dark">Leer más</a></span>
+                            </div>
+                        </div>
+                        <?php endif ?>
+                        
+                    </aside>
+                    <!-- end sidebar -->
+                </div>
+            </div>
+        </section>
+        <!-- end section -->  
+        
         <footer class="footer-white bg-white">
             <div class="footer-top padding-seven-tb lg-padding-eight-tb sm-padding-50px-tb">
                 <div class="container">
@@ -210,6 +234,7 @@
                 </div>
             </div>
         </footer>
+
 
 
         <!-- start scroll to top -->

@@ -1,22 +1,53 @@
+<?php
+session_start();
+
+
+require '../Admin/config.php';
+
+$id = intval($_GET['id']);
+
+
+
+$sqProject = "SELECT * FROM projects where id = :id"; 
+$queryProject = $pdo->prepare($sqProject);
+$queryProject->bindParam(':id', $id, PDO::PARAM_INT);
+$queryProject->execute();
+$project = $queryProject->fetch(PDO::FETCH_OBJ);
+
+if(!$project){
+    header('location: ../proyectos.php');
+    } else {
+    
+    }
+$sqlImages = "SELECT * FROM project_images where project_id = :project_id";
+$queryImages = $pdo->prepare($sqlImages);
+$queryImages->bindParam(':project_id', $id, PDO::PARAM_INT);
+$queryImages->execute();
+$images = $queryImages->fetchAll(PDO::FETCH_OBJ);
+
+?>
+
+
+
 <!doctype html>
 <html class="no-js" lang="en">
     <head>
-        <title>Blogs | Smart-Desarrollos</title>
+        <title><?php echo $project->full_name ?> | Smart-Desarrollos</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="author" content="ThemeZaa">
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
         <meta name="description" content="Litho is a clean and modern design, BootStrap 5 responsive, business and portfolio multipurpose HTML5 template with 37+ ready homepage demos.">
         <!-- favicon icon -->
-        <link rel="shortcut icon" href="client/images/logos/favicon2.svg">
-        <link rel="apple-touch-icon" href="client/images/logos/favicon2.svg">
-        <link rel="apple-touch-icon" sizes="72x72" href="client/images/logos/favicon2.svg">
-        <link rel="apple-touch-icon" sizes="114x114" href="client/images/logos/favicon2.svg">
+        <link rel="shortcut icon" href="../client/images/logos/favicon2.svg">
+        <link rel="apple-touch-icon" href="../client/images/logos/favicon2.svg">
+        <link rel="apple-touch-icon" sizes="72x72" href="../client/images/logos/favicon2.svg">
+        <link rel="apple-touch-icon" sizes="114x114" href="../client/images/logos/favicon2.svg">
         <!-- style sheets and font icons  -->
-        <link rel="stylesheet" type="text/css" href="client/css/font-icons.min.css">
-        <link rel="stylesheet" type="text/css" href="client/css/theme-vendors.min.css">
-        <link rel="stylesheet" type="text/css" href="client/css/style.css" />
-        <link rel="stylesheet" type="text/css" href="client/css/responsive.css" />
+        <link rel="stylesheet" type="text/css" href="../client/css/font-icons.min.css">
+        <link rel="stylesheet" type="text/css" href="../client/css/theme-vendors.min.css">
+        <link rel="stylesheet" type="text/css" href="../client/css/style.css" />
+        <link rel="stylesheet" type="text/css" href="../client/css/responsive.css" />
     </head>
     <body data-mobile-nav-style="classic">
         <!-- start header -->
@@ -24,10 +55,10 @@
             <nav class="navbar navbar-expand-lg navbar-boxed navbar-dark bg-transparent header-light fixed-top header-reverse-scroll">
                 <div class="container-fluid nav-header-container">
                     <div class="col-auto col-sm-6 col-lg-2 me-auto ps-lg-0">
-                        <a class="navbar-brand" href="index.html">
-                            <img src="client/images/logos/Logo.svg" data-at2x="client/images/logos/Logo.svg" class="default-logo" alt="">
-                            <img src="client/images/logos/Logo.svg" data-at2x="client/images/logos/Logo.svg" class="alt-logo" alt="">
-                            <img src="client/images/logos/Logo.svg" data-at2x="client/images/logos/Logo.svg" class="mobile-logo" alt="">
+                        <a class="navbar-brand" href="../index.html">
+                            <img src="../client/images/logos/Logo.svg" data-at2x="../client/images/logos/Logo.svg" class="default-logo" alt="">
+                            <img src="../client/images/logos/Logo.svg" data-at2x="../client/images/logos/Logo.svg" class="alt-logo" alt="">
+                            <img src="../client/images/logos/Logo.svg" data-at2x="../client/images/logos/Logo.svg" class="mobile-logo" alt="">
                         </a>
                     </div>
                     <div class="col-auto menu-order px-lg-0">
@@ -40,27 +71,27 @@
                         <div class="collapse navbar-collapse" id="navbarNav">
                             <ul class="navbar-nav alt-font">
                                 <li class="nav-item dropdown megamenu">
-                                    <a href="index.html" class="nav-link ">Inicio</a>
+                                    <a href="../index.html" class="nav-link ">Inicio</a>
                                     <i class="fa fa-angle-down dropdown-toggle" data-bs-toggle="dropdown"></i>
                                    
                                 </li>
                                 <li class="nav-item dropdown simple-dropdown">
-                                    <a href="proyectos.html" class="nav-link">Proyectos</a>
+                                    <a href="../proyectos.php" class="nav-link active">Proyectos</a>
                                     <i class="fa fa-angle-down dropdown-toggle" data-bs-toggle="dropdown"></i>
                                     
                                 </li>
                                 <li class="nav-item dropdown simple-dropdown">
-                                    <a href="index.html#nosotros" class="nav-link">Nosotros</a>
+                                    <a href="#" class="nav-link">Nosotros</a>
                                     <i class="fa fa-angle-down dropdown-toggle" data-bs-toggle="dropdown"></i>
                                     
                                 </li>
                                 <li class="nav-item dropdown megamenu">
-                                    <a href="blogs.html" class="nav-link active">Blog</a>
+                                    <a href="../blogs.php" class="nav-link">Blog</a>
                                     <i class="fa fa-angle-down dropdown-toggle" data-bs-toggle="dropdown"></i>
                                     
                                 </li>
                                 <li class="nav-item dropdown simple-dropdown">
-                                    <a href="#contacto" class="nav-link">Contacto</a>
+                                    <a href="#" class="nav-link">Contacto</a>
                                     <i class="fa fa-angle-down dropdown-toggle" data-bs-toggle="dropdown"></i>
                                     
                                 </li>
@@ -76,88 +107,97 @@
         </header>
         <!-- end header -->
         
-        <!-- start page title -->
-        <section class="half-section parallax p-0 h-150px" data-parallax-background-ratio="0.5" style="background-image:url('images/portfolio-bg.jpg');">
-            <div class="container">
-                <div class="row align-items-stretch justify-content-center extra-small-screen">
-                    <div class="col-12 col-xl-6 col-lg-7 col-md-8 page-title-extra-small text-center d-flex justify-content-center flex-column">
+        <section id="classes" class="bg-client overlap-height padding-5-rem-top">
+            <div class="container ">
+                <div class="row align-items-end margin-2-rem-bottom">
+                    <div class="col-12 col-xl-8 col-lg-8 text-center text-lg-start wow animate__fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                        <span class="alt-font font-weight-500 text-dark  d-block margin-20px-bottom md-margin-10px-bottom fz-20px title-proyec"><?php echo $project->nombre ?></span>
                     </div>
+                    
                 </div>
-            </div>
-        </section>
-        <!-- end page title -->
-        <!-- start section --> 
-        <section class="blog-right-side-bar pt-0">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-12 col-sm-12  col-lg-8 right-sidebar md-margin-60px-bottom sm-margin-40px-bottom">
-                        <!-- start blog item --> 
-                        <div class="col-12 blog-post-content border-radius-6px overflow-hidden text-center p-0 margin-4-half-rem-bottom wow animate__fadeIn">
-                            <div class="blog-image"><a href="blog-post-layout-01.html"><img src="https://via.placeholder.com/800x563" alt=""/></a></div>
-                            <div class="blog-text d-inline-block w-100">
-                                <div class="content margin-40px-top  lg-padding-4-half-rem-all xs-padding-20px-lr xs-padding-40px-tb position-relative mx-auto w-100 lg-w-100">
-                                    <h6 class="alt-font font-weight-500 text-dark text-left">TITULO DEL BLOG</h6>
-                                    <p class="alt-font text-dark text-left">
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
-                                    </p>
-                                    <p class="alt-font text-dark text-left">
-                                        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-                                    </p>
+                <div class="row">
+                    <div class="swiper-container p-0 white-move one-fifth-screen sm-h-500px lg-h-720px" data-slider-options='{ "slidesPerView": 1, "loop": true, "pagination": { "el": ".swiper-pagination", "clickable": true }, "navigation": { "nextEl": ".swiper-button-next-nav", "prevEl": ".swiper-button-previous-nav" }, "autoplay": { "delay": 4000, "disableOnInteraction": false },  "keyboard": { "enabled": true, "onlyInViewport": true }, "effect": "slide" }'>
+                        <div class="swiper-wrapper">
+                            <!-- start slider item -->
+                            <?php foreach($images as $image): ?>
+                            <div class="swiper-slide cover-background" style="background-image:url('../Admin/assets/images/projects/<?php echo $image->filename ?>');">
+                                <div class="opacity-light opacity-4 bg-extra-dark-gray"></div>
+                                <div class="container h-100">
+                                    <div class="row h-100">
+                                        <div class="col-12 col-lgxl-7 col-lg-8 position-relative d-flex flex-column justify-content-center h-100 text-left">
+                                            
+                                        </div>
+                                    </div>
                                 </div>
-                                
                             </div>
+                            <?php endforeach ?>
+                            <!-- end slider item -->
+                            <!-- start slider item -->
+                            <!-- <div class="swiper-slide cover-background" style="background-image:url('amaite/amaite4.jpg');">
+                                <div class="opacity-light opacity-4 bg-extra-dark-gray"></div>
+                                <div class="container h-100">
+                                    <div class="row justify-content-center h-100">
+                                        <div class="col-12 col-lgxl-7 col-lg-8 position-relative d-flex flex-column justify-content-center h-100 text-center">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <!-- end slider item -->
+                            <!-- start slider item -->
+                            <!-- <div class="swiper-slide cover-background" style="background-image:url('amaite/amaite3.jpg');">
+                                <div class="opacity-light opacity-4 bg-extra-dark-gray"></div>
+                                <div class="container h-100">
+                                    <div class="row justify-content-center h-100">
+                                        <div class="col-12 col-xl-7 col-lg-8 position-relative d-flex flex-column justify-content-center h-100 text-center">
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <!-- <div class="swiper-slide cover-background" style="background-image:url('amaite/amaite2.jpg');">
+                                <div class="opacity-light opacity-4 bg-extra-dark-gray"></div>
+                                <div class="container h-100">
+                                    <div class="row justify-content-center h-100">
+                                        <div class="col-12 col-xl-7 col-lg-8 position-relative d-flex flex-column justify-content-center h-100 text-center">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <!-- end slider item -->
                         </div>
-                        <!-- end blog item -->
-                        
-                        
-                        <!-- start pagination -->
-                        <div class="col-12 d-flex justify-content-center margin-7-half-rem-top lg-margin-5-rem-top xs-margin-4-rem-top wow animate__fadeIn">
-                            <ul class="pagination pagination-style-01 text-small font-weight-500 align-items-center">
-                                <li class="page-item"><a class="page-link" href="#"><i class="feather icon-feather-arrow-left icon-extra-small d-xs-none"></i></a></li>
-                                <li class="page-item"><a class="page-link" href="#">01</a></li>
-                                <li class="page-item active"><a class="page-link" href="#">02</a></li>
-                                <li class="page-item"><a class="page-link" href="#">03</a></li>
-                                <li class="page-item"><a class="page-link" href="#">04</a></li>
-                                <li class="page-item"><a class="page-link" href="#"><i class="feather icon-feather-arrow-right icon-extra-small  d-xs-none"></i></a></li>
-                            </ul>
-                        </div>
-                        <!-- end pagination -->
+                        <!-- start slider arrow -->
+                        <!--<div class="swiper-button-next-nav swiper-button-next rounded-circle slider-navigation-style-07 dark"><i class="ti-arrow-right text-extra-small"></i></div>
+                        <div class="swiper-button-previous-nav swiper-button-prev rounded-circle slider-navigation-style-07 dark"><i class="ti-arrow-left text-extra-small"></i></div>-->
+                        <!-- end slider arrow -->
+                        <!-- start slider pagination -->
+                        <div class="swiper-pagination swiper-light-pagination"></div>
+                        <!-- end slider pagination -->
                     </div>
-                    <!-- start sidebar -->
-                    <aside class="col-12 col-xl-3 offset-xl-1 col-lg-4 col-md-7 col-sm-6 blog-sidebar lg-padding-4-rem-left md-padding-15px-left">
-                        <div class="d-inline-block w-100 ">
-                            <span class="alt-font font-weight-500 text-large text-extra-dark-gray d-block margin-25px-bottom">OTRAS NOTAS</span>
-                        </div>
-                        <div class=" border-radius-4px text-center margin-5-rem-bottom xs-margin-35px-bottom text-left">
-                            <a href="about-me.html"><img src="https://via.placeholder.com/262x200" alt="" class="  mx-auto"/></a>
-                            <a href="blog-grid.html" class="text-extra-dark-gray alt-font font-weight-500 margin-20px-top d-inline-block text-medium text-dark">TITULO DEL BLOG</a>
-                            <p class="alt-font text-dark">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.</p>
-                            <div class="d-flex align-items-center">
-                                <span class="alt-font me-auto"><a href="single_blog.html" class="text-dark">Leer más</a></span>
-                            </div>
-                        </div>
-                        <div class=" border-radius-4px text-center margin-5-rem-bottom xs-margin-35px-bottom text-left">
-                            <a href="about-me.html"><img src="https://via.placeholder.com/262x200" alt="" class="  mx-auto"/></a>
-                            <a href="blog-grid.html" class="text-extra-dark-gray alt-font font-weight-500 margin-20px-top d-inline-block text-medium text-dark">TITULO DEL BLOG</a>
-                            <p class="alt-font text-dark">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.</p>
-                            <div class="d-flex align-items-center">
-                                <span class="alt-font me-auto"><a href="single_blog.html" class="text-dark">Leer más</a></span>
-                            </div>
-                        </div>
-                    </aside>
-                    <!-- end sidebar -->
+                </div>
+                <div class="row margin-100px-top">
+                    <div class="container">
+                        <p class="alt-font text-dark"><?php echo $project->full_name ?></p>
+                        <p class="alt-font text-dark"><?php echo $project->categoria ?></p>
+                        <p class="alt-font text-dark">AÑO: <?php echo $project->year ?></p>
+                        <p class="alt-font text-dark">M<sup>2</sup>: <?php echo $project->metros_cuadrados ?>.</p>
+                        <p class="alt-font text-dark">COSTO DE OBRA: $<?php echo $project->price ?></p>
+                        <p class="alt-font text-dark"> UBICACIÓN: <?php echo $project->ubicacion ?></p>
+                    </div>
                 </div>
             </div>
         </section>
-        <!-- end section -->  
-        
+
+
+
         <footer class="footer-white bg-white">
             <div class="footer-top padding-seven-tb lg-padding-eight-tb sm-padding-50px-tb">
                 <div class="container">
                     <div class="row ">
                         <!-- start footer column -->
                         <div class="col-12 col-lg-3 col-md-3 col-sm-6 d-flex justify-content-center margin-4-half-rem-bottom">
-                            <img src="client/images/logos/logo5.svg" data-at2x="client/images/logos/logo5.svg" alt="" width="300px">
+                            <img src="../client/images/logos/logo5.svg" data-at2x="../client/images/logos/logo5.svg" alt="" width="300px">
                         </div>
                         <!-- end footer column -->
                         <!-- start footer column -->
@@ -235,8 +275,8 @@
         <a class="scroll-top-arrow" href="javascript:void(0);"><i class="feather icon-feather-arrow-up"></i></a>
         <!-- end scroll to top -->
         <!-- javascript -->
-        <script type="text/javascript" src="client/js/jquery.min.js"></script>
-        <script type="text/javascript" src="client/js/theme-vendors.min.js"></script>
-        <script type="text/javascript" src="client/js/main.js"></script>
+        <script type="text/javascript" src="../client/js/jquery.min.js"></script>
+        <script type="text/javascript" src="../client/js/theme-vendors.min.js"></script>
+        <script type="text/javascript" src="../client/js/main.js"></script>
     </body>
 </html>
