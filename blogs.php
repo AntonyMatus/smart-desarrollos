@@ -73,14 +73,14 @@ if (is_null($category) && is_null($search)) {
                             <span class="navbar-toggler-line"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNav">
-                            <ul class="navbar-nav alt-font">
+                            <ul class="navbar-nav alt-font3">
                                 <li class="nav-item dropdown megamenu">
                                     <a href="#" class="nav-link ">Inicio</a>
                                     <i class="fa fa-angle-down dropdown-toggle" data-bs-toggle="dropdown"></i>
                                    
                                 </li>
                                 <li class="nav-item dropdown simple-dropdown">
-                                    <a href="proyectos.html" class="nav-link">Proyectos</a>
+                                    <a href="proyectos.php" class="nav-link">Proyectos</a>
                                     <i class="fa fa-angle-down dropdown-toggle" data-bs-toggle="dropdown"></i>
                                     
                                 </li>
@@ -115,7 +115,7 @@ if (is_null($category) && is_null($search)) {
             <div class="container h-200px">
                 <div class="row align-items-stretch justify-content-center extra-small-screen">
                     <div class="col-12 col-xl-6 col-lg-7 col-md-8 page-title-extra-small text-center d-flex justify-content-center flex-column">
-                        <h2 class="text-extra-dark-gray alt-font font-weight-500 letter-spacing-minus-1px line-height-50 sm-line-height-45 xs-line-height-30 no-margin-bottom">Blogs</h2>
+                        <h2 class="text-extra-dark-gray alt-font3 font-weight-700 letter-spacing-minus-1px line-height-50 sm-line-height-45 xs-line-height-30 no-margin-bottom">Blogs</h2>
                     </div>
                 </div>
             </div>
@@ -132,107 +132,20 @@ if (is_null($category) && is_null($search)) {
                             <?php foreach($blogs as $blog): ?>
                             <li class="grid-item wow animate__fadeIn">
                                 <div class="blog-post border-radius-5px bg-white box-shadow-medium">
-                                    <div class="blog-post-image bg-medium-slate-blue">
+                                    <div class="blog-post-image3 bg-medium-slate-blue">
                                         <a href="single_blog.php?id=<?php echo $blog->id ?>" title=""><img src="Admin/assets/images/blogs/<?php echo $blog->img ?>" alt=""></a>
-                                        <a href="single_blog.html" class="blog-category alt-font"><?php echo $blog->category ?></a>
+                                        <a href="single_blog.html" class="blog-category alt-font3"><?php echo $blog->category ?></a>
                                     </div>
                                     <div class="post-details padding-3-rem-lr padding-2-half-rem-tb">
-                                        <a href="single_blog.html" class="alt-font font-weight-500 text-extra-medium text-dark margin-15px-bottom d-block"><?php echo $blog->name ?></a>
-                                        <p class="text-dark"><?php echo $blog->description ?></p>
+                                        <a href="single_blog.html" class="alt-font3 font-weight-700 text-extra-medium text-dark margin-15px-bottom d-block"><?php echo $blog->name ?></a>
+                                        <p class="text-dark alt-font3"><?php echo $blog->description ?></p>
                                         <div class="d-flex align-items-center">
-                                            <span class="alt-font text-small me-auto"><a href="single_blog.html" class="text-dark">Leer más</a></span>
+                                            <span class="alt-font3 text-small me-auto"><a href="single_blog.html" class="text-dark">Leer más</a></span>
                                         </div>
                                     </div>
                                 </div>
                             </li>
                             <?php endforeach ?>
-                            <!-- end blog item -->
-                            <!-- start blog item -->
-                            <!-- <li class="grid-item wow animate__fadeIn">
-                                <div class="blog-post border-radius-5px bg-white box-shadow-medium">
-                                    <div class="blog-post-image bg-medium-slate-blue">
-                                        <a href="single_blog.html" title=""><img src="https://via.placeholder.com/800x560" alt=""></a>
-                                        <a href="single_blog.html" class="blog-category alt-font">Category</a>
-                                    </div>
-                                    <div class="post-details padding-3-rem-lr padding-2-half-rem-tb">
-                                        <a href="single_blog.html" class="alt-font font-weight-500 text-extra-medium text-dark margin-15px-bottom d-block">TITULO DEL BLOG</a>
-                                        <p class="text-dark">Lorem ipsum is simply dummy text printing typesetting industry lorem ipsum been dummy...</p>
-                                        <div class="d-flex align-items-center">
-                                            <span class="alt-font text-small me-auto"><a href="single_blog.html" class="text-dark">Leer más</a></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li> -->
-                            <!-- end blog item -->
-                            <!-- start blog item -->
-                            <!-- <li class="grid-item wow animate__fadeIn">
-                                <div class="blog-post border-radius-5px bg-white box-shadow-medium">
-                                    <div class="blog-post-image bg-medium-slate-blue">
-                                        <a href="single_blog.html" title=""><img src="https://via.placeholder.com/800x560" alt=""></a>
-                                        <a href="single_blog.html" class="blog-category alt-font">Category</a>
-                                    </div>
-                                    <div class="post-details padding-3-rem-lr padding-2-half-rem-tb">
-                                        <a href="single_blog.html" class="alt-font font-weight-500 text-extra-medium text-dark margin-15px-bottom d-block">TITULO DEL BLOG</a>
-                                        <p class="text-dark">Lorem ipsum is simply dummy text printing typesetting industry lorem ipsum been dummy...</p>
-                                        <div class="d-flex align-items-center">
-                                            <span class="alt-font text-small me-auto"><a href="single_blog.html" class="text-dark">Leer más</a></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li> -->
-                            <!-- end blog item -->
-                            <!-- start blog item -->
-                            <!-- <li class="grid-item wow animate__fadeIn">
-                                <div class="blog-post border-radius-5px bg-white box-shadow-medium">
-                                    <div class="blog-post-image bg-medium-slate-blue">
-                                        <a href="single_blog.html" title=""><img src="https://via.placeholder.com/800x560" alt=""></a>
-                                        <a href="single_blog.html" class="blog-category alt-font">Category</a>
-                                    </div>
-                                    <div class="post-details padding-3-rem-lr padding-2-half-rem-tb">
-                                        <a href="single_blog.html" class="alt-font font-weight-500 text-extra-medium text-dark margin-15px-bottom d-block">TITULO DEL BLOG</a>
-                                        <p class="text-dark">Lorem ipsum is simply dummy text printing typesetting industry lorem ipsum been dummy...</p>
-                                        <div class="d-flex align-items-center">
-                                            <span class="alt-font text-small me-auto"><a href="single_blog.html" class="text-dark">Leer más</a></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li> -->
-                            <!-- end blog item -->
-                            <!-- start blog item -->
-                            <!-- <li class="grid-item wow animate__fadeIn">
-                                <div class="blog-post border-radius-5px bg-white box-shadow-medium">
-                                    <div class="blog-post-image bg-medium-slate-blue">
-                                        <a href="single_blog.html" title=""><img src="https://via.placeholder.com/800x560" alt=""></a>
-                                        <a href="single_blog.html" class="blog-category alt-font">Category</a>
-                                    </div>
-                                    <div class="post-details padding-3-rem-lr padding-2-half-rem-tb">
-                                        <a href="single_blog.html" class="alt-font font-weight-500 text-extra-medium text-dark margin-15px-bottom d-block">TITULO DEL BLOG</a>
-                                        <p class="text-dark">Lorem ipsum is simply dummy text printing typesetting industry lorem ipsum been dummy...</p>
-                                        <div class="d-flex align-items-center">
-                                            <span class="alt-font text-small me-auto"><a href="single_blog.html" class="text-dark">Leer más</a></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li> -->
-                            <!-- end blog item -->
-                            <!-- start blog item -->
-                            <!-- <li class="grid-item wow animate__fadeIn">
-                                <div class="blog-post border-radius-5px bg-white box-shadow-medium">
-                                    <div class="blog-post-image bg-medium-slate-blue">
-                                        <a href="single_blog.html" title=""><img src="https://via.placeholder.com/800x560" alt=""></a>
-                                        <a href="single_blog.html" class="blog-category alt-font">Category</a>
-                                    </div>
-                                    <div class="post-details padding-3-rem-lr padding-2-half-rem-tb">
-                                        <a href="single_blog.html" class="alt-font font-weight-500 text-extra-medium text-dark margin-15px-bottom d-block">TITULO DEL BLOG</a>
-                                        <p class="text-dark">Lorem ipsum is simply dummy text printing typesetting industry lorem ipsum been dummy...</p>
-                                        <div class="d-flex align-items-center">
-                                            <span class="alt-font text-small me-auto"><a href="single_blog.html" class="text-dark">Leer más</a></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li> -->
-                            <!-- end blog item -->
-                            
                         </ul>
                         <!-- start pagination -->
                         <?php if($pages > 1) { ?>
@@ -279,8 +192,8 @@ if (is_null($category) && is_null($search)) {
                         <!-- end footer column -->
                         <!-- start footer column -->
                         <div class="col-12 col-lg-3 col-md-4 col-sm-4 margin-4-half-rem-bottom">
-                            <h5 class="alt-font font-weight-500 text-dark title m-0">SMART DESARROLLOS</h5>
-                            <ul class="nav margin-2-rem-bottom">
+                            <h5 class="alt-font3 font-weight-700 text-dark title m-0">SMART DESARROLLOS</h5>
+                            <ul class="alt-font3 nav margin-2-rem-bottom">
                                 <li><i class="fas fa-map-marker-alt"></i> 
                                     <span>
                                     Calle 9 246, Campestre, 97120 Mérida, Yuc.
@@ -289,7 +202,7 @@ if (is_null($category) && is_null($search)) {
                                 <li style="width: 100%;"><i class="fa fa-phone"></i> <a href="tel:9999253576"> (999) 492 4428 </a></li>
                                 <li><i class="far fa-envelope"></i> <a>contacto@smartdesarrollos.com</a></li>
                             </ul>
-                            <h5 class="alt-font font-weight-500 text-dark title">SOCIAL</h5>
+                            <h5 class="alt-font3 font-weight-700 text-dark title">SOCIAL</h5>
                             <ul>
                                 <li><i class="fab fa-facebook-f" aria-hidden="true"></i> <a href="https://www.facebook.com/SmartDesarrollos/" target="_blank">Facebook</a></li>
                                 <li><i class="fab fa-instagram" aria-hidden="true"></i> <a href="https://www.instagram.com/smartdesarrollos/" target="_blank">Instagram</a></li>
@@ -298,35 +211,35 @@ if (is_null($category) && is_null($search)) {
                         <!-- end footer column -->
                         <!-- start footer column -->
                         <div id="contacto" class="col-12 col-lg-6 col-md-5 col-sm-6">
-                            <h5 class="alt-font font-weight-500 text-dark title m-0">CONTACTA CON NOSOTROS</h5>
-                            <span>Si desea más información, complete este formulario. Nos pondremos en contacto con usted en la brevedad posible</span>
+                            <h5 class="alt-font3 font-weight-700 text-dark title m-0">CONTACTA CON NOSOTROS</h5>
+                            <span class="alt-font3">Si desea más información, complete este formulario. Nos pondremos en contacto con usted en la brevedad posible</span>
                             <form action="client/email-templates/contact-form.php" method="POST">
                                 <div class="form-group row mb-2">
-                                    <label for="staticEmail" class="col-sm-6 col-form-label text-uppercase">Nombre</label>
+                                    <label for="staticEmail" class="alt-font3 col-sm-6 col-form-label text-uppercase">Nombre</label>
                                     <div class="col-sm-6">
                                       <input type="text"  class=" style-input" id="name" name="name" required>
                                     </div>
                                 </div>
                                 <div class="form-group row mb-2 ">
-                                    <label for="staticEmail" class="col-sm-6 col-form-label text-uppercase">Correo electronico</label>
+                                    <label for="staticEmail" class="alt-font3 col-sm-6 col-form-label text-uppercase">Correo electronico</label>
                                     <div class="col-sm-6">
                                       <input type="text"  class=" style-input" id="email" name="email" required>
                                     </div>
                                 </div>
                                 <div class="form-group row mb-2">
-                                    <label for="staticEmail" class="col-sm-6 col-form-label text-uppercase">Telefono</label>
+                                    <label for="staticEmail" class="alt-font3 col-sm-6 col-form-label text-uppercase">Telefono</label>
                                     <div class="col-sm-6">
                                       <input type="text"  class=" style-input" id="phone" name="phone" required>
                                     </div>
                                 </div>
                                 <div class="form-group row mb-2">
-                                    <label for="staticEmail" class="col-sm-6 col-form-label text-uppercase">DESCRIBA SU SOLICITUD</label>
+                                    <label for="staticEmail" class="alt-font3 col-sm-6 col-form-label text-uppercase">DESCRIBA SU SOLICITUD</label>
                                     <div class="col-sm-6">
                                       <textarea class="style-input" name="solicitud" id="solicitud" cols="30" rows="2" required></textarea>
                                     </div>
                                 </div>
                                 <div class="d-flex justify-content-center align-items-center">
-                                    <button type="submit" class="btn btn-client d-flex justify-content-center">Enviar</button>
+                                    <button type="submit" class="alt-font3 btn btn-client d-flex justify-content-center">Enviar</button>
                                 </div>
                             </form>
                         </div>
@@ -340,7 +253,7 @@ if (is_null($category) && is_null($search)) {
                         <a href="aviso_privacidad.html" class="text-dark" target="_blank">Aviso de privacidad</a>
                     </div>
                     <div class="col-12 col-md-8">
-                        <p class="text-dark m-0">© 2019 - 2023 Smart Desarrollos - Desarrollado por <a class="text-dark" href="https://www.buho-solutions.com/">Buho Solutions</a></p>
+                        <p class="text-dark m-0"><a href="Admin/index.php" class="mx-2 "><i class="fas fa-user text-dark"></i></a> © 2019 - 2023 Smart Desarrollos - Desarrollado por <a class="text-dark" href="https://www.buho-solutions.com/">Buho Solutions</a></p>
                     </div>
                 </div>
             </div>

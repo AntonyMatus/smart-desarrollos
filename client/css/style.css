@@ -44,7 +44,8 @@ Table of contents
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
 /* ===================================
     02. Reset
 ====================================== */
@@ -61,7 +62,7 @@ img { max-width: 100%; height: auto; }
 video { background-size: cover; display: table-cell; vertical-align: middle; width: 100%; }
 p { margin: 0 0 25px; }
 b, strong { font-weight: 600; }
-.alt-font strong { font-weight: 600; }
+.alt-font3 strong { font-weight: 600; }
 .last-paragraph-no-margin p:last-of-type { margin-bottom:0; }
 ul, ol, dl { list-style-position: outside; margin-bottom: 25px; }
 ul { margin: 0; padding: 0; }
@@ -114,6 +115,8 @@ header [class^="container-"] [class^="col-"], header [class^="container-"] [clas
 
 /* font family */
 .alt-font { font-family: 'Poppins', sans-serif; }
+.alt-font2 { font-family: 'Playfair Display'; }
+.alt-font3 { font-family: 'Quicksand';  }
 .main-font { font-family: 'Roboto', sans-serif !important; }
 
 /* heading size */
@@ -1936,6 +1939,8 @@ input.btn:focus { border-width: 2px; }
 .no-padding-left { padding-left:0 !important; }
 .no-padding-right { padding-right:0 !important; }
 
+#loom-companion-mv3{height: 0px;}
+#shadow-host-companion{padding: 0;}
 /* ===================================
     12. Display and overflow
 ====================================== */
@@ -3355,6 +3360,8 @@ header .header-cart-icon .cart-count { position: absolute; top: -6px; right: -10
 ====================================== */
 
 .blog-post-image img, .portfolio-image img { width: 540px; height: 340px; }
+.blog-post-image img, .portfolio-image2 img { width: 540px; height: 240px; border-radius: 6%; }
+.blog-post-image3 img, .portfolio-image img { width: 540px; height: 300px; }
 .grid { list-style: none; }
 .grid-sizer { padding: 0 !important; margin: 0 !important; }
 
@@ -3484,8 +3491,8 @@ header .header-cart-icon .cart-count { position: absolute; top: -6px; right: -10
 .blog-post:hover .blog-post-image img { opacity: 0.6; -webkit-transform: scale3d(1.1,1.1,1.1); -moz-transform: scale3d(1.1,1.1,1.1); -ms-transform: scale3d(1.1,1.1,1.1); transform: scale3d(1.1,1.1,1.1); }
 
 /* blog grid */
-.blog-grid .blog-post-image .blog-category { position: absolute; top: 23px; right: 23px; font-size: 11px; line-height: 14px; background: rgba(23,23,23,.75); color: #fff; text-transform: uppercase; border-radius: 2px; padding: 6px 13px; transition: all 0.5s ease-in-out; -webkit-transition: all 0.5s ease-in-out; -moz-transition: all 0.5s ease-in-out; -ms-transition: all 0.5s ease-in-out; -o-transition: all 0.5s ease-in-out; }
-.blog-grid .blog-post:hover .blog-post-image .blog-category { background: #fff; color: #232323; transition: all 0.5s ease-in-out; -webkit-transition: all 0.5s ease-in-out; -moz-transition: all 0.5s ease-in-out; -ms-transition: all 0.5s ease-in-out; -o-transition: all 0.5s ease-in-out; box-shadow: 0 0 10px rgba(0,0,0,.2) }
+.blog-grid .blog-post-image3 .blog-category { position: absolute; top: 23px; right: 23px; font-size: 11px; line-height: 14px; background: rgba(23,23,23,.75); color: #fff; text-transform: uppercase; border-radius: 2px; padding: 6px 13px; transition: all 0.5s ease-in-out; -webkit-transition: all 0.5s ease-in-out; -moz-transition: all 0.5s ease-in-out; -ms-transition: all 0.5s ease-in-out; -o-transition: all 0.5s ease-in-out; }
+.blog-grid .blog-post:hover .blog-post-image3 .blog-category { background: #fff; color: #232323; transition: all 0.5s ease-in-out; -webkit-transition: all 0.5s ease-in-out; -moz-transition: all 0.5s ease-in-out; -ms-transition: all 0.5s ease-in-out; -o-transition: all 0.5s ease-in-out; box-shadow: 0 0 10px rgba(0,0,0,.2) }
 .blog-grid .avtar-image {width: 30px; border-radius: 100%; margin-right: 10px;}
 .blog-grid .blog-like {display: -ms-flexbox; display: flex; -ms-flex-pack: center; justify-content: center; -ms-flex-align: center; align-items: center;}
 .blog-grid .blog-like i {margin-right: 4px;}

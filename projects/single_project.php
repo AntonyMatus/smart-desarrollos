@@ -69,7 +69,7 @@ $images = $queryImages->fetchAll(PDO::FETCH_OBJ);
                             <span class="navbar-toggler-line"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNav">
-                            <ul class="navbar-nav alt-font">
+                            <ul class="navbar-nav alt-font3">
                                 <li class="nav-item dropdown megamenu">
                                     <a href="../index.html" class="nav-link ">Inicio</a>
                                     <i class="fa fa-angle-down dropdown-toggle" data-bs-toggle="dropdown"></i>
@@ -81,7 +81,7 @@ $images = $queryImages->fetchAll(PDO::FETCH_OBJ);
                                     
                                 </li>
                                 <li class="nav-item dropdown simple-dropdown">
-                                    <a href="#" class="nav-link">Nosotros</a>
+                                    <a href="../index.html#nosotros" class="nav-link">Nosotros</a>
                                     <i class="fa fa-angle-down dropdown-toggle" data-bs-toggle="dropdown"></i>
                                     
                                 </li>
@@ -91,7 +91,7 @@ $images = $queryImages->fetchAll(PDO::FETCH_OBJ);
                                     
                                 </li>
                                 <li class="nav-item dropdown simple-dropdown">
-                                    <a href="#" class="nav-link">Contacto</a>
+                                    <a href="#contacto" class="nav-link">Contacto</a>
                                     <i class="fa fa-angle-down dropdown-toggle" data-bs-toggle="dropdown"></i>
                                     
                                 </li>
@@ -111,7 +111,7 @@ $images = $queryImages->fetchAll(PDO::FETCH_OBJ);
             <div class="container ">
                 <div class="row align-items-end margin-2-rem-bottom">
                     <div class="col-12 col-xl-8 col-lg-8 text-center text-lg-start wow animate__fadeIn" style="visibility: visible; animation-name: fadeIn;">
-                        <span class="alt-font font-weight-500 text-dark  d-block margin-20px-bottom md-margin-10px-bottom fz-20px title-proyec"><?php echo $project->nombre ?></span>
+                        <span class="alt-font3 font-weight-700 text-dark  d-block margin-20px-bottom md-margin-10px-bottom fz-20px title-proyec"><?php echo $project->nombre ?></span>
                     </div>
                     
                 </div>
@@ -131,41 +131,6 @@ $images = $queryImages->fetchAll(PDO::FETCH_OBJ);
                                 </div>
                             </div>
                             <?php endforeach ?>
-                            <!-- end slider item -->
-                            <!-- start slider item -->
-                            <!-- <div class="swiper-slide cover-background" style="background-image:url('amaite/amaite4.jpg');">
-                                <div class="opacity-light opacity-4 bg-extra-dark-gray"></div>
-                                <div class="container h-100">
-                                    <div class="row justify-content-center h-100">
-                                        <div class="col-12 col-lgxl-7 col-lg-8 position-relative d-flex flex-column justify-content-center h-100 text-center">
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
-                            <!-- end slider item -->
-                            <!-- start slider item -->
-                            <!-- <div class="swiper-slide cover-background" style="background-image:url('amaite/amaite3.jpg');">
-                                <div class="opacity-light opacity-4 bg-extra-dark-gray"></div>
-                                <div class="container h-100">
-                                    <div class="row justify-content-center h-100">
-                                        <div class="col-12 col-xl-7 col-lg-8 position-relative d-flex flex-column justify-content-center h-100 text-center">
-                                           
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
-                            <!-- <div class="swiper-slide cover-background" style="background-image:url('amaite/amaite2.jpg');">
-                                <div class="opacity-light opacity-4 bg-extra-dark-gray"></div>
-                                <div class="container h-100">
-                                    <div class="row justify-content-center h-100">
-                                        <div class="col-12 col-xl-7 col-lg-8 position-relative d-flex flex-column justify-content-center h-100 text-center">
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
-                            <!-- end slider item -->
                         </div>
                         <!-- start slider arrow -->
                         <!--<div class="swiper-button-next-nav swiper-button-next rounded-circle slider-navigation-style-07 dark"><i class="ti-arrow-right text-extra-small"></i></div>
@@ -178,12 +143,12 @@ $images = $queryImages->fetchAll(PDO::FETCH_OBJ);
                 </div>
                 <div class="row margin-100px-top">
                     <div class="container">
-                        <p class="alt-font text-dark"><?php echo $project->full_name ?></p>
-                        <p class="alt-font text-dark"><?php echo $project->categoria ?></p>
-                        <p class="alt-font text-dark">AÑO: <?php echo $project->year ?></p>
-                        <p class="alt-font text-dark">M<sup>2</sup>: <?php echo $project->metros_cuadrados ?>.</p>
-                        <p class="alt-font text-dark">COSTO DE OBRA: $<?php echo $project->price ?></p>
-                        <p class="alt-font text-dark"> UBICACIÓN: <?php echo $project->ubicacion ?></p>
+                        <p class="alt-font3 font-weight-600 text-dark"><?php echo $project->full_name ?></p>
+                        <p class="alt-font3 font-weight-600 text-dark"><?php echo $project->categoria ?></p>
+                        <p class="alt-font3 font-weight-600 text-dark">AÑO: <?php echo $project->year ?></p>
+                        <p class="alt-font3 font-weight-600 text-dark">M<sup>2</sup>: <?php echo $project->metros_cuadrados ?>.</p>
+                        <p class="alt-font3 font-weight-600 text-dark">COSTO DE OBRA: $<?php echo $project->price ?></p>
+                        <p class="alt-font3 font-weight-600 text-dark"> UBICACIÓN: <?php echo $project->ubicacion ?></p>
                     </div>
                 </div>
             </div>
@@ -202,7 +167,7 @@ $images = $queryImages->fetchAll(PDO::FETCH_OBJ);
                         <!-- end footer column -->
                         <!-- start footer column -->
                         <div class="col-12 col-lg-3 col-md-4 col-sm-4 margin-4-half-rem-bottom">
-                            <h5 class="alt-font font-weight-500 text-dark title m-0">SMART DESARROLLOS</h5>
+                            <h5 class="alt-font3 font-weight-500 text-dark title m-0">SMART DESARROLLOS</h5>
                             <ul class="nav margin-2-rem-bottom">
                                 <li><i class="fas fa-map-marker-alt"></i> 
                                     <span>
@@ -212,7 +177,7 @@ $images = $queryImages->fetchAll(PDO::FETCH_OBJ);
                                 <li style="width: 100%;"><i class="fa fa-phone"></i> <a href="tel:9999253576"> (999) 492 4428 </a></li>
                                 <li><i class="far fa-envelope"></i> <a>contacto@smartdesarrollos.com</a></li>
                             </ul>
-                            <h5 class="alt-font font-weight-500 text-dark title">SOCIAL</h5>
+                            <h5 class="alt-font3 font-weight-500 text-dark title">SOCIAL</h5>
                             <ul>
                                 <li><i class="fab fa-facebook-f" aria-hidden="true"></i> <a href="https://www.facebook.com/SmartDesarrollos/" target="_blank">Facebook</a></li>
                                 <li><i class="fab fa-instagram" aria-hidden="true"></i> <a href="https://www.instagram.com/smartdesarrollos/" target="_blank">Instagram</a></li>
@@ -221,9 +186,9 @@ $images = $queryImages->fetchAll(PDO::FETCH_OBJ);
                         <!-- end footer column -->
                         <!-- start footer column -->
                         <div id="contacto" class="col-12 col-lg-6 col-md-5 col-sm-6">
-                            <h5 class="alt-font font-weight-500 text-dark title m-0">CONTACTA CON NOSOTROS</h5>
+                            <h5 class="alt-font3 font-weight-500 text-dark title m-0">CONTACTA CON NOSOTROS</h5>
                             <span>Si desea más información, complete este formulario. Nos pondremos en contacto con usted en la brevedad posible</span>
-                            <form action="client/email-templates/contact-form.php" method="POST">
+                            <form action="../client/email-templates/contact-form.php" method="POST">
                                 <div class="form-group row mb-2">
                                     <label for="staticEmail" class="col-sm-6 col-form-label text-uppercase">Nombre</label>
                                     <div class="col-sm-6">
@@ -263,7 +228,7 @@ $images = $queryImages->fetchAll(PDO::FETCH_OBJ);
                         <a href="aviso_privacidad.html" class="text-dark" target="_blank">Aviso de privacidad</a>
                     </div>
                     <div class="col-12 col-md-8">
-                        <p class="text-dark m-0">© 2019 - 2023 Smart Desarrollos - Desarrollado por <a class="text-dark" href="https://www.buho-solutions.com/">Buho Solutions</a></p>
+                        <p class="text-dark m-0"><a href="../Admin/index.php" class="mx-2 "><i class="fas fa-user text-dark"></i></a> © 2019 - 2023 Smart Desarrollos - Desarrollado por <a class="text-dark" href="https://www.buho-solutions.com/">Buho Solutions</a></p>
                     </div>
                 </div>
             </div>
