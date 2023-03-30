@@ -1,18 +1,18 @@
 <?php
 if( ! empty( $_POST['email'] ) ) {
 
-	$logo_url = 'https://' . $_SERVER['SERVER_NAME'] . '/client/images/Logo.svg';
+	$logo_url = 'https://' . $_SERVER['SERVER_NAME'] . '/client/images/logos/Logo.svg';
 	// Enable / Disable SMTP
 	$enable_smtp = 'no'; // yes OR no
 
 	// Email Receiver Address
-	$receiver_email = 'info@yourdomain.com';
+	$receiver_email = 'smartdesarrollosmarketing@gmail.com';
 
 	// Email Receiver Name for SMTP Email
-	$receiver_name 	= 'Your Name';
+	$receiver_name 	= 'Smart Desarrollos';
 
 	// Email Subject
-	$subject = 'Contact form details';
+	$subject = 'Nuevo contacto | Smart Desarrollos';
 
 	// Google reCaptcha V3 Key
 	$grecaptchav3_secret_key = '';
@@ -93,7 +93,7 @@ if( ! empty( $_POST['email'] ) ) {
 		$headers .= 'From: ' . $name . ' <' . $from . '>' . "\r\n";
 		if( mail( $receiver_email, $subject, $message, $headers ) ) {
 			
-			header( "Location: http://smart-desarrollos.test ");	
+			header( "Location: https://smartdesarrollos.com/");	
 			echo '{ "alert": "alert-success", "message": "Tu mensaje ha sido enviado exitosamente!" }';
 		   	//Success Message
 		  	
