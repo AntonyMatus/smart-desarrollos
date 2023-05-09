@@ -192,17 +192,19 @@ if (is_null($category) && is_null($search)) {
                         <!-- end footer column -->
                         <!-- start footer column -->
                         <div class="col-12 col-lg-3 col-md-4 col-sm-4 margin-4-half-rem-bottom">
-                            <h5 class="alt-font3 font-weight-700 text-dark title m-0">SMART DESARROLLOS</h5>
+                            <h5 class="alt-font3 font-weight-500 text-dark title m-0">SMART DESARROLLOS</h5>
                             <ul class="alt-font3 nav margin-2-rem-bottom">
                                 <li><i class="fas fa-map-marker-alt"></i> 
-                                    <span>
-                                    Calle 9 246, Campestre, 97120 Mérida, Yuc.
+                                    <span> 
+                                        <a href="https://www.google.com.mx/maps/place/Calle+9+246,+Campestre,+97120+M%C3%A9rida,+Yuc./@21.0081496,-89.6192235,17z/data=!3m1!4b1!4m6!3m5!1s0x8f5676afc3d50de7:0xd814a36a3e5b9bdd!8m2!3d21.0081446!4d-89.6166486!16s%2Fg%2F11c4shqx44">
+                                        Calle 9 246, Campestre, 97120 Mérida, Yuc.
+                                    </a>
                                     </span>
                                 </li>
                                 <li style="width: 100%;"><i class="fa fa-phone"></i> <a href="tel:9999253576"> (999) 492 4428 </a></li>
-                                <li><i class="far fa-envelope"></i> <a>contacto@smartdesarrollos.com</a></li>
+                                <li><i class="far fa-envelope"></i> <a href="mailto:contacto@smartdesarrollos.com">contacto@smartdesarrollos.com</a></li>
                             </ul>
-                            <h5 class="alt-font3 font-weight-700 text-dark title">SOCIAL</h5>
+                            <h5 class="alt-font3 font-weight-500 text-dark title">SOCIAL</h5>
                             <ul>
                                 <li><i class="fab fa-facebook-f" aria-hidden="true"></i> <a href="https://www.facebook.com/SmartDesarrollos/" target="_blank">Facebook</a></li>
                                 <li><i class="fab fa-instagram" aria-hidden="true"></i> <a href="https://www.instagram.com/smartdesarrollos/" target="_blank">Instagram</a></li>
@@ -211,7 +213,7 @@ if (is_null($category) && is_null($search)) {
                         <!-- end footer column -->
                         <!-- start footer column -->
                         <div id="contacto" class="col-12 col-lg-6 col-md-5 col-sm-6">
-                            <h5 class="alt-font3 font-weight-700 text-dark title m-0">CONTACTA CON NOSOTROS</h5>
+                            <h5 class="alt-font3 font-weight-500 text-dark title m-0">CONTACTA CON NOSOTROS</h5>
                             <span class="alt-font3">Si desea más información, complete este formulario. Nos pondremos en contacto con usted en la brevedad posible</span>
                             <form action="client/email-templates/contact-form.php" method="POST">
                                 <div class="form-group row mb-2">
@@ -239,7 +241,7 @@ if (is_null($category) && is_null($search)) {
                                     </div>
                                 </div>
                                 <div class="d-flex justify-content-center align-items-center">
-                                    <button type="submit" class="alt-font3 btn btn-client d-flex justify-content-center">Enviar</button>
+                                    <button type="submit" class=" alt-font3 btn btn-client d-flex justify-content-center">Enviar</button>
                                 </div>
                             </form>
                         </div>
