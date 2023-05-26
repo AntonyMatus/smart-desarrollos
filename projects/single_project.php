@@ -48,6 +48,25 @@ $images = $queryImages->fetchAll(PDO::FETCH_OBJ);
         <link rel="stylesheet" type="text/css" href="../client/css/theme-vendors.min.css">
         <link rel="stylesheet" type="text/css" href="../client/css/style.css" />
         <link rel="stylesheet" type="text/css" href="../client/css/responsive.css" />
+        <!-- Facebook Pixel Code -->
+        <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window,document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1976921842659690'); 
+        fbq('track', 'PageView');
+        </script>
+        <noscript>
+        <img height="1" width="1" 
+        src="https://www.facebook.com/tr?id=1976921842659690&ev=PageView
+        &noscript=1"/>
+        </noscript>
+        <!-- End Facebook Pixel Code -->
     </head>
     <body data-mobile-nav-style="classic">
         <!-- start header -->
@@ -162,7 +181,7 @@ $images = $queryImages->fetchAll(PDO::FETCH_OBJ);
                     <div class="row ">
                         <!-- start footer column -->
                         <div class="col-12 col-lg-3 col-md-3 col-sm-6 d-flex justify-content-center margin-4-half-rem-bottom">
-                            <img src="client/images/logos/logo5.svg" data-at2x="client/images/logos/logo5.svg" alt="" width="300px">
+                            <img src="../client/images/logos/logo5.svg" data-at2x="../client/images/logos/logo5.svg" alt="" width="300px">
                         </div>
                         <!-- end footer column -->
                         <!-- start footer column -->

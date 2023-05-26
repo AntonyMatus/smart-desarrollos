@@ -26,6 +26,25 @@ $projects = $queryProjects->fetchAll(PDO::FETCH_OBJ);
         <link rel="stylesheet" type="text/css" href="client/css/theme-vendors.min.css">
         <link rel="stylesheet" type="text/css" href="client/css/style.css" />
         <link rel="stylesheet" type="text/css" href="client/css/responsive.css" />
+        <!-- Facebook Pixel Code -->
+        <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window,document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1976921842659690'); 
+        fbq('track', 'PageView');
+        </script>
+        <noscript>
+        <img height="1" width="1" 
+        src="https://www.facebook.com/tr?id=1976921842659690&ev=PageView
+        &noscript=1"/>
+        </noscript>
+        <!-- End Facebook Pixel Code -->
     </head>
     <body data-mobile-nav-style="classic">
         <!-- start header -->
@@ -93,13 +112,33 @@ $projects = $queryProjects->fetchAll(PDO::FETCH_OBJ);
                     </div>
                     
                 </div>
-                <div class="row justify-content-center">
-                    <div class="col-12">
-                        <ul class="portfolio-overlay portfolio-wrapper grid grid-2col xl-grid-2col lg-grid-2col md-grid-2col sm-grid-2col xs-grid-1col gutter-extra-large text-center" style="position: relative; height: 317.172px;">
-                            <li class="grid-sizer"></li>
+                <div class="row">
+                    <?php foreach($projects as $project): ?>
+                    <div class="col-lg-6 mb-5">
+                        <div class="portfolio-overlay portfolio-wrapper   text-center" style="position: relative; height: auto;">
                             <!-- start lightbox gallery item -->
+                            <div class="grid-sizer"></div>
+                            <div class="grid-item wow animate__fadeIn" style="visibility: visible; position: absolute; animation-name: fadeIn;">
+                                <a href="projects/single_project.php?id=<?php echo $project->id ?>">
+                                    <div class="portfolio-box">
+                                        <div class="portfolio-image ">
+                                            <img src="Admin/assets/images/projects/<?php echo $project->cover ?>" alt="" data-no-retina="" >
+                                            <h3 class="alt-font2 text-white position-absolut text-uppercase"><?php echo $project->nombre ?></h3>
+                                            
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <?php endforeach ?>
+                    <!-- <div class="col-12">
+                        <ul class="portfolio-overlay portfolio-wrapper  gutter-extra-large text-center" style="position: relative; height: 317.172px;">
+                            
+                            start lightbox gallery item 
 
                             <?php foreach($projects as $project): ?>
+                            <li class="grid-sizer"></li>
                             <li class="grid-item wow animate__fadeIn" style="visibility: visible; position: absolute; animation-name: fadeIn;">
                                 <a href="projects/single_project.php?id=<?php echo $project->id ?>">
                                     <div class="portfolio-box">
@@ -113,7 +152,7 @@ $projects = $queryProjects->fetchAll(PDO::FETCH_OBJ);
                             </li>
                             <?php endforeach ?>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>
